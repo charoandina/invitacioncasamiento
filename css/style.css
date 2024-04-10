@@ -462,18 +462,18 @@ footer p{
         display: none;
     }
     .noscasamos-container {
-        height: 68vh;
+        height: 100vh;
     }
     .flowersdown {
-        width: 50%;
-        margin-bottom: -56px;
+        width: 65%;
+        margin-bottom: -115px;
     }
     .noscasamos{
         width: 100%;
     }
     .flowersup {
-        width: 50%;
-        margin-top: -57px;
+        width: 65%;
+        margin-top: -113px;
     }
     .flowers{
         margin: auto;

@@ -491,7 +491,59 @@ footer p{
         font-size: 24px;
         text-align: center;
     }
+    .cuenta-regresiva-container{
+        padding: 10px;
+        margin-top: 40px;
+    }
     .cuenta-regresiva-div{
-
+        width: 100px;
+        height: auto;
+    }
+    .corazon-container img {
+        width: 75%;
+    }
+    .corazon-container{
+        margin-top: 40px;
+    }
+    .rsvp-container{
+        margin-top: 40px;
+    }
+    .rsvp-div2-container img {
+        width: 25%;
+    }
+    .hasthag-container img {
+        width: 26%;
+        margin-bottom: 40px;
+    }
+    .hasthag-container p{
+        text-align: center;
+    }
+    .nosotros-img-container {
+        width: 100%;
+        padding: 10px;
+    }
+    .nosotros-container p {
+        padding: 15px;
+        text-align: center;
+    }
+    .nosotros-img img {
+        width: 100%;
+        height: 120px;
+    }
+    .regalo-container img {
+        width: 20%;
+        margin-top: 20px;
+    }
+    .regalo-container p{
+        text-align: center;
+    }
+    .gracias-container p{
+        text-align: center;
+    }
+    footer{
+        margin-bottom: 0;
+    }
+    footer p {
+        font-size: 9px;
     }
 }

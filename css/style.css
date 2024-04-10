@@ -161,6 +161,11 @@ h1{
     background-color: #9f8f32;
 }
 
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
 /*RSVP*/
 
 .rsvp-container{

@@ -506,6 +506,7 @@ footer p{
     position: fixed;
     right: 2%;
     top: 2%;
+    cursor: pointer;
 }
 
 .hidden{

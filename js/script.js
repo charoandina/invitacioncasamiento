@@ -1,4 +1,6 @@
-let targetDate = new Date("September 21, 2024 16:00:00").getTime();
+/*COUNTDOW*/
+
+let targetDate = new Date("September 21, 2024 17:00:00").getTime();
 
 let countdown = setInterval(function() {
 
@@ -32,3 +34,41 @@ let countdown = setInterval(function() {
 function formatTime(time) {
     return time < 10 ? "0" + time : time;
 }
+
+/* POPUP */
+
+function showPopUp() {
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('popup').style.display = 'block';
+}
+
+function hidePopup() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('popup').style.display = 'none';
+}
+
+/* MUSICA */
+
+let audios = document.getElementById("audioPrueba");
+
+let playAudio = () => {
+  audios.play().catch((error) => {
+    console.log(
+      "La reproducción automática no está permitida. Haz clic en la página para reproducir el audio."
+    );
+    return false;
+  });
+  document.getElementById("btnPlay").classList.add("hidden");
+  document.getElementById("btnPausa").classList.remove("hidden");
+  document.getElementById("btnPausa").classList.add("pulse");
+};
+
+let pauseAudio = () => {
+  audios.pause();
+  document.getElementById("btnPausa").classList.add("hidden");
+  document.getElementById("btnPlay").classList.remove("hidden");
+  document.getElementById("btnPlay").classList.add("vertical_shake");
+};
+
+
+

@@ -8,11 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/font.css">
-    <title>Invitacion Nati Nico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Martu y Nico</title>
 </head>
 <body class="libre-baskerville-regular">
 
+<!--CANCION-->
+<div class="audio-container">
+    <audio id="audioPrueba" loop>
+        <source src="assets/prank.mp3">
+    </audio>
 
+    <div class="animation">
+        <img id="btnPlay" src="img/icono-musica_play.svg" alt="boton play" onclick="playAudio()" class="botonAudio btnplay">
+
+        <img id="btnPausa" src="img/icono-musica_pausa.svg" class="botonAudio hidden animate__animated animate__pulse animate__infinite" onclick="pauseAudio()" alt="boton pausa">
+    </div>
+</div>
+
+<!--MAIN-->
 <div class="container noscasamos-container">
     <div class="flowers">
         <img src="img/flowersup.png" alt="" class="flowersup">
@@ -28,12 +42,13 @@
     </div>
 </div>
 
-
+<!--FRASE-->
 <div class="frase-container">
     <img src="img/icono-frase.svg" alt="">
     <h1 class="libre-baskerville-regular">LLEGÓ EL GRAN DIA</h1>
 </div>
 
+<!--CONTDOWN-->
 <div class="cuenta-regresiva-container">
     <!--DIAS-->
     <div class="cuenta-regresiva-div">
@@ -64,24 +79,24 @@
     <img src="img/corazon.png" alt="">
 </div>
 
+<!--INFO CEREMONIA-->
 <div class="data-ceremonia-container">
     <h2 class="libre-baskerville-regular">NUESTRA BODA</h2>
     <h3 class="glacial">Ceremonia y festejo</h3>
     <p class="glacial">21 de Septiembre 2024</p>
-    <p class="glacial">16:00 horas</p>
+    <p class="glacial">17:00 horas</p>
     <p class="glacial">Espacio PK Campo</p>
     <p class="glacial">Capilla del Señor, Provincia de Buenos Aires</p>
     <button class="glacial"><a href="https://www.google.com/maps/place/Espacio+PK+Campo/@-34.3582413,-59.1214364,17z/data=!3m1!4b1!4m6!3m5!1s0x95bb83bc2e574ef5:0xce69798a50b7e448!8m2!3d-34.3582413!4d-59.1214364!16s%2Fg%2F11rnd2kl2v?entry=ttu" target="_blank">Cómo llegar</a></button>
 </div>
 
 <!--RSVP-->
-
 <div class=" rsvp-container">
     <div class="rsvp-div1-container">
         <h2 class="libre-baskerville-regular">RSVP</h2>
         <p class="glacial">Te esperamos para celebrar este momento tan importante con nosotros.</p>
         <p class="glacial">¡Confírmanos tu asistencia!</p>
-        <button class="glacial">Confirmar asistencia</button>
+        <button class="glacial"><a href="">Confirmar asistencia</a></button>
     </div>
 
     <div class="rsvp-div2-container">
@@ -100,7 +115,6 @@
 </div>
 
 <!--HASTHAG-->
-
 <div class="hasthag-container">
     <img src="img/camara.png" alt="">
     <h2 class="libre-baskerville-regular">#MartuyNico24</h2>
@@ -115,11 +129,11 @@
     <p class="glacial">Cada historia de amor es diferente, ¡pero la nuestra es única!</p>
     <div class="nosotros-img-container">
             <div class="nosotros-img"><img src="img/nosotros2.jpg" alt=""></a></div>
-            <div class="nosotros-img"><img src="img/nosotros6.jpg" alt=""></div>
+            <div class="nosotros-img"><img src="img/nosotros10bis.jpg" alt=""></div>
             <div class="nosotros-img"><img src="img/nosotros1.jpg" alt=""></div>
-            <div class="nosotros-img"><img src="img/nosotros7.jpg" alt=""></div>
-            <div class="nosotros-img"><img src="img/nosotros8.jpg" alt=""></div>
-            <div class="nosotros-img"><img src="img/nosotros9.jpg" alt=""></div>
+            <div class="nosotros-img"><img src="img/nosotros11.jpg" alt=""></div>
+            <div class="nosotros-img"><img src="img/nosotros12.jpg" alt=""></div>
+            <div class="nosotros-img"><img src="img/nosotros13.jpg" alt=""></div>
             <div class="nosotros-img"><img src="img/nosotros3.jpg" alt=""></div>
             <div class="nosotros-img"><img src="img/nosotros4.jpg" alt=""></div>
         </div>
@@ -129,8 +143,8 @@
 <!--REGALO-->
 <div class="regalo-container">
         <img src="img/regalo.png" alt="">
-        <p class="glacial">Si querés hacernos un regalo podés colaborar en nuestra Luna de Miel...</p>
-        <button class="glacial">Ver más</button>
+        <p class="glacial">Si querés hacernos un regalo podés colaborar en nuestra Luna de Miel</p>
+        <button class="glacial" onclick="showPopUp()">Ver más</button>
 </div>
 
 <!--GRACIAS-->
@@ -144,6 +158,20 @@
     <p>Diseñado y desarrollado por Rosario Garcia de Andina</p>
     <p>rosario.garciadea@gmail.com</p>
 </footer>
+
+<!--POPUP BANCO-->
+<div id="overlay" class="overlay" onclick="hidePopup()"></div>
+
+<div id="popup" class="popup glacial">
+    <h3>Datos Bancarios (pesos o dólares)</h3>
+    <p>Nombre del Titular: Nicolas Andres Rosso Grasso</p>
+    <p>Cuenta: 079-008593/5</p>
+    <p>CBU: 0720079388000000859354</p>
+    <p>Alias: NICOLAS.ROSSO.GRASSO</p>
+    <p>CUIT/CUIL: 20-35169263-5</p>
+    <p>Banco Santander</p>
+</div>
+
 
 <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>

@@ -678,4 +678,13 @@ footer p{
         right: 5%;
         top: 2%;
     }
+    #popup-container img {
+        max-width: 70%;
+        max-height: 80%;
+        margin-top: 60%;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 }

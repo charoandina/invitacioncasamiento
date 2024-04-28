@@ -16,7 +16,7 @@
 <!--CANCION-->
 <div class="audio-container">
     <audio id="audioPrueba" loop>
-        <source src="assets/prank2.mp3">
+        <source src="assets/canyoufeelthelovetonight.mp3">
     </audio>
 
     <div class="animation">
@@ -105,7 +105,7 @@
 
     <div class="rsvp-div3-container">
         <p class="glacial">¡Agendá la fecha en tu calendario!</p>
-        <button class="glacial">Agendar evento</button>
+        <button class="glacial"><a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MTZybzNmbHUzdjdkM3ByZms2Y2IzcnBpbGwgcm9zYXJpby5nYXJjaWFkZWFAbQ&amp;tmsrc=rosario.garciadea%40gmail.com">Agendar evento</a></button>
     </div>
 
     <div class="rsvp-div4-container">
@@ -120,7 +120,7 @@
     <h2 class="libre-baskerville-regular">#MartuyNico24</h2>
     <p class="glacial">¡Preparate para nuestro gran día!</p>
     <p class="glacial">Etiquetanos en Instagram con nuestro <span class="color">#hashtag</span> en tus fotos o videos.</p>
-    <button class="glacial">Ver fotos Instagram</button>
+    <button class="glacial"><a target="_blank" href="https://www.instagram.com/explore/tags/martuynico24/">Ver fotos Instagram</a></button>
 </div>
 
 <!--NOSOTROS-->
@@ -138,6 +138,14 @@
             <div class="nosotros-img"><img src="img/nosotros4.jpg" alt=""></div>
         </div>
     </div>
+</div>
+
+<!--POP UP IMAGENES-->
+<div id="popup-container">
+    <span class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+    <button id="prev-btn" class="prev-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <img id="popup-image" src="" alt="" class="animate__fadeIn animate__animated">
+    <button id="next-btn" class="next-btn"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 </div>
 
 <!--REGALO-->
@@ -162,7 +170,7 @@
 <!--POPUP BANCO-->
 <div id="overlay" class="overlay" onclick="hidePopup()"></div>
 
-<div id="popup" class="popup glacial">
+<div id="popup" class="popup glacial animate__fadeIn animate__animated">
     <h3>Datos Bancarios (pesos o dólares)</h3>
     <p>Nombre del Titular: Nicolas Andres Rosso Grasso</p>
     <p>Cuenta: 079-008593/5</p>
@@ -171,6 +179,7 @@
     <p>CUIT/CUIL: 20-35169263-5</p>
     <p>Banco Santander</p>
 </div>
+
 
 
 <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>

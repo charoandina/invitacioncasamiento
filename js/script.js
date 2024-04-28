@@ -43,8 +43,18 @@ function showPopUp() {
 }
 
 function hidePopup() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('popup').style.display = 'none';
+    // Añade la clase de animación fade-out
+    document.getElementById('popup').classList.remove('animate__fadeIn');
+    document.getElementById('popup').classList.add('animate__fadeOut');
+    
+    // Espera a que la animación termine (dura 1 segundo por defecto) y luego oculta los elementos
+    setTimeout(() => {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('popup').style.display = 'none';
+        
+        // Quita la clase de animación fade-out para la próxima vez que se muestre el pop-up
+        document.getElementById('popup').classList.remove('animate__fadeOut');
+    }, 1000); // La duración de la animación fade-out es de 1 segundo
 }
 
 /* MUSICA */
@@ -60,15 +70,107 @@ let playAudio = () => {
   });
   document.getElementById("btnPlay").classList.add("hidden");
   document.getElementById("btnPausa").classList.remove("hidden");
-  document.getElementById("btnPausa").classList.add("pulse");
 };
 
 let pauseAudio = () => {
   audios.pause();
   document.getElementById("btnPausa").classList.add("hidden");
   document.getElementById("btnPlay").classList.remove("hidden");
-  document.getElementById("btnPlay").classList.add("vertical_shake");
 };
 
+/* POP UP */
 
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".nosotros-img img");
+    const popupContainer = document.getElementById("popup-container");
+    const popupImage = document.getElementById("popup-image");
+    const closeButton = document.querySelector(".close");
+    const prevButton = document.getElementById("prev-btn");
+    const nextButton = document.getElementById("next-btn");
+    let currentIndex = 0;
 
+    // Función para abrir el pop-up y mostrar la imagen correspondiente
+    function openPopup(index) {
+        const src = images[index].getAttribute("src");
+        popupImage.setAttribute("src", src);
+        popupContainer.style.display = "block";
+        currentIndex = index;
+    }
+
+    // Función para cerrar el pop-up
+    function closePopup() {
+        popupContainer.style.display = "none";
+    }
+
+    // Función para cambiar la imagen mostrada en el pop-up
+    function changeImage(direction) {
+        const popupImage = document.getElementById('popup-image');
+        let animationClass;
+    
+        // Determina la animación a aplicar según la dirección
+        if (direction === 'next') {
+            animationClass = 'animate__fadeOutRight';
+        } else if (direction === 'prev') {
+            animationClass = 'animate__fadeOutLeft';
+        }
+    
+        // Añade la animación de salida a la imagen
+        popupImage.classList.add(animationClass);
+    
+        // Espera a que la animación termine antes de cambiar la imagen
+        setTimeout(() => {
+            // Quita la animación de salida
+            popupImage.classList.remove(animationClass);
+    
+            // Cambia el índice de la imagen según la dirección
+            if (direction === 'next') {
+                currentIndex = (currentIndex + 1) % images.length;
+            } else if (direction === 'prev') {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+            }
+    
+            // Llama a openPopup para mostrar la nueva imagen
+            openPopup(currentIndex);
+        }, 1000); // Duración de la animación (1 segundo por defecto)
+    }
+
+    // Evento de clic en las imágenes para abrir el pop-up
+    images.forEach(function(image, index) {
+        image.addEventListener("click", function() {
+            openPopup(index);
+        });
+    });
+
+    // Evento de clic en el botón de cierre para cerrar el pop-up
+    closeButton.addEventListener("click", closePopup);
+
+    // Evento de clic fuera de la imagen para cerrar el pop-up
+    popupContainer.addEventListener("click", function(event) {
+        if (event.target === this) {
+            closePopup();
+        }
+    });
+
+    // Evento de teclado para la navegación entre imágenes
+    document.addEventListener("keydown", function(event) {
+        if (popupContainer.style.display === "block") {
+            if (event.key === "ArrowLeft") {
+                changeImage("prev");
+            } else if (event.key === "ArrowRight") {
+                changeImage("next");
+            } else if (event.key === "Escape") {
+                closePopup();
+            }
+        }
+    });
+
+    // Evento de clic en el botón "Anterior" para navegar hacia atrás
+    prevButton.addEventListener("click", function() {
+        changeImage("prev");
+    });
+
+    // Evento de clic en el botón "Siguiente" para navegar hacia adelante
+    nextButton.addEventListener("click", function() {
+        changeImage("next");
+    });
+});

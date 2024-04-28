@@ -668,6 +668,7 @@ footer p{
     }
     footer{
         margin-bottom: 0;
+        justify-content: space-between;
     }
     footer p {
         font-size: 9px;
@@ -686,5 +687,8 @@ footer p{
         align-items: center;
         justify-content: center;
         flex-direction: column;
+    }
+    .popup{
+        width: 90%;
     }
 }

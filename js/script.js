@@ -164,41 +164,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    let startX = 0;
-    let currentX = 0;
-    const swipeThreshold = 50; // Distancia mínima en píxeles para considerar un gesto como deslizamiento
-
-    // Agrega un listener para eventos táctiles en el contenedor emergente
-    popupContainer.addEventListener("touchstart", handleTouchStart, false);
-    popupContainer.addEventListener("touchmove", handleTouchMove, false);
-    popupContainer.addEventListener("touchend", handleTouchEnd, false);
-
-    function handleTouchStart(event) {
-        // Almacena la posición inicial del toque
-        startX = event.touches[0].clientX;
-    }
-
-    function handleTouchMove(event) {
-        // Actualiza la posición actual del toque
-        currentX = event.touches[0].clientX;
-    }
-
-    function handleTouchEnd() {
-        // Calcula la distancia y dirección del deslizamiento
-        const distance = startX - currentX;
-
-        if (Math.abs(distance) > swipeThreshold) {
-            // Si el desplazamiento es mayor que el umbral, determina la dirección
-            if (distance > 0) {
-                // Deslizamiento hacia la izquierda (prev)
-                changeImage("prev");
-            } else {
-                // Deslizamiento hacia la derecha (next)
-                changeImage("next");
-            }
-        }
-    }
-
     // Evento de clic en el botón "Anterior" para navegar hacia atrás
     prevButton.addEventListener("click", function() {
         changeImage("prev");
